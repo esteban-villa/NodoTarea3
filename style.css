@@ -1,0 +1,107 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #c6e4fc;
+}
+
+.container{
+    position: relative;
+    width: 500px;
+    height:500px;
+    border: 5px solid #696868;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.container::after { 
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #ff0000;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.numeros{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.numero{
+    position: absolute;
+    line-height: 200px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    background: none;
+    transform: rotate(var(--rotate)) translate(225px) rotate(calc(-1 * var(--rotate)));
+}
+
+.horario, .minutero, .segundero{
+    position: absolute;
+    width: 5px;
+    height: 50px;
+    background: #000000;
+    border-radius: 5px;
+    transform-origin: bottom;
+    transform: translateX(-50%);
+}
+
+.horario{
+    top: 22%;
+    left: 49%;
+    height: 140px;
+    animation: horario 43200s linear infinite; /* 12 horas */
+}
+
+.minutero{
+    top: 18%;
+    left: 50%;
+    height: 160px;
+    background-color: rgb(251, 255, 0);
+    animation: minutero 3600s linear infinite; /* 1 hora */
+}
+  
+.segundero {
+    top: 72px;
+    left: 250px;
+    height: 180px;
+    background: red;
+    animation: segundero 60s linear infinite; /* 1 minuto */
+}
+
+/* Animaciones */
+@keyframes horario {
+    from {
+      transform: translateX(50%) rotate(0deg);
+    }
+    to {
+      transform: translateX(50%) rotate(360deg);
+    }
+  }
+  
+  @keyframes minutero {
+    from {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+  
+  @keyframes segundero {
+    from {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    to {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
